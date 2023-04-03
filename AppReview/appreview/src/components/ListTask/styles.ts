@@ -1,8 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-
-  task:{
+  task: {
     width: "100%",
     marginTop: 10,
     flex: 0,
@@ -11,16 +10,17 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#1F1E25",
     padding: 15,
-    borderRadius: 4
+    borderRadius: 4,
+    gap: 4,
   },
 
   taskDone: {
     textDecorationLine: "line-through",
-    color: "#fffc",
-
+    color: "#858685",
+    width: "80%",
   },
   taskUndone: {
     color: "#fffc",
-  }
-  
-})
+    width: "80%",
+  },
+});

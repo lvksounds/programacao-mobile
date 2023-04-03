@@ -5,29 +5,29 @@ export const styles = StyleSheet.create({
     flex: 0,
     flexDirection: "column",
     padding: 10,
-    marginLeft: 20,
-    marginRight:20,
+    marginLeft: 10,
+    marginRight: 10,
   },
   container: {
     flex: 0,
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 40,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 50
+    marginTop: 50,
   },
   title: {
     flex: 0,
-    flexDirection: 'row',
+    flexDirection: "row",
     alignContent: "center",
   },
   to: {
     color: "#A013DB",
-    fontSize: 40
+    fontSize: 40,
   },
   do: {
     color: "#1d9bf0",
-    fontSize: 40
+    fontSize: 40,
   },
   inputDiv: {
     width: "100%",
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 0,
     flexDirection: "row",
-    gap: 5
+    gap: 5,
   },
   input: {
     width: "80%",
@@ -50,33 +50,33 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     height: 62,
     width: "20%",
-    
+
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   statusDiv: {
     width: "100%",
-    marginVertical: 40,
+    marginVertical: 20,
     alignItems: "center",
     justifyContent: "space-between",
     flex: 0,
     flexDirection: "row",
-    gap: 5
+    gap: 5,
   },
   createStatusDiv: {
     flex: 0,
     flexDirection: "row",
     alignContent: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   doneStatusDiv: {
     flex: 0,
     flexDirection: "row",
     alignContent: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   tasklist: {
     borderTopWidth: 1,
-    borderColor: "#ccc"
-  }
-})
+    borderColor: "#ccc",
+  },
+});
