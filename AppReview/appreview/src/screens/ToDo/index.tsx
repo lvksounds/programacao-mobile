@@ -13,18 +13,20 @@ import ListTask from "../../components/ListTask";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  function handleRemoveTask(index: string) {
-    return taskList.filter((item) => item.id !== index);
-  }
-  const [taskText, setTaskText] = useState("");
 
+  const [taskText, setTaskText] = useState("");
   const [taskList, setTaskList] = useState<
     { id: string; text: string; isDone: boolean }[]
   >([]);
-  let doneCount = 0;
+  
+  //const [doneTaskList, setDoneTask] = useState<{ id: string; text: string; isDone: boolean }[]>([]);
+
+  function handleRemoveTask(index: string) {
+    return taskList.filter((item) => item.id !== index);
+  }
 
   useEffect(() => {
-    taskList.forEach((task) => (task.isDone ? doneCount++ : doneCount));
+    
   });
 
   return (
@@ -50,7 +52,6 @@ export default function Home() {
         <TouchableOpacity
           style={styles.addBtn}
           onPress={() => {
-            console.log((taskList.length + 1).toString());
             const newTask = {
               id: taskList.length.toString(),
               text: taskText,
@@ -77,7 +78,7 @@ export default function Home() {
             Concluídas:
           </Text>
           <Text style={{ color: "#008100", fontSize: 20, fontWeight: "bold" }}>
-            {doneCount}
+            { /*doneTaskList.length*/ }
           </Text>
         </View>
       </View>
@@ -92,6 +93,7 @@ export default function Home() {
                 id={item.id}
                 task={item.text}
                 onRemove={() => setTaskList(handleRemoveTask(item.id))}
+                //isDone={() => handleDoneTask(item.isDone)}
               />
             )}
             showsVerticalScrollIndicator={false}

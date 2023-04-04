@@ -9,6 +9,7 @@ type Props = {
   task: string;
   id: string;
   onRemove: () => void;
+  isDone: () => void;
 };
 
 export default function ListTask(props: Props) {
@@ -26,6 +27,7 @@ export default function ListTask(props: Props) {
           size={28}
           color="green"
           onPress={handleCheckPress}
+          isDone={props.isDone}
         />
         <Text style={doneCheck ? styles.taskDone : styles.taskUndone}>
           {props.task}
