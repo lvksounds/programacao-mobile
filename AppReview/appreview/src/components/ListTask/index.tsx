@@ -9,13 +9,15 @@ type Props = {
   task: string;
   id: string;
   onRemove: () => void;
-  isDone: () => void;
+  isDone: boolean;
+  onDone: () => void;
 };
 
 export default function ListTask(props: Props) {
   const [doneCheck, SetDoneCheck] = useState(false);
 
   function handleCheckPress() {
+    props.onDone();
     SetDoneCheck(!doneCheck);
   }
 
@@ -27,7 +29,6 @@ export default function ListTask(props: Props) {
           size={28}
           color="green"
           onPress={handleCheckPress}
-          isDone={props.isDone}
         />
         <Text style={doneCheck ? styles.taskDone : styles.taskUndone}>
           {props.task}

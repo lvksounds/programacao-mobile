@@ -13,29 +13,34 @@ import ListTask from "../../components/ListTask";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-
   const [taskText, setTaskText] = useState("");
   const [taskList, setTaskList] = useState<
     { id: string; text: string; isDone: boolean }[]
   >([]);
-  
-  //const [doneTaskList, setDoneTask] = useState<{ id: string; text: string; isDone: boolean }[]>([]);
 
-  function handleRemoveTask(index: string) {
-    return taskList.filter((item) => item.id !== index);
+  const [doneTasks, setDoneTask] = useState(0);
+
+  function handleRemoveTask(id: string) {
+    setDoneTask(taskList.filter((item) => item.id !== id).length);
+    return taskList.filter((item) => item.id !== id);
   }
 
-  useEffect(() => {
-    
-  });
+  function handleDoneEvent(id: string) {
+    taskList.forEach((task) => {
+      if (task.id == id) task.isDone = !task.isDone;
+    });
+    return taskList.filter((task) => task.isDone === true).length;
+  }
+
+  useEffect(() => {});
 
   return (
     <View style={styles.main}>
       <View style={styles.container}>
         <FontAwesome5 name="tasks" size={40} color="#1d9bf0" />
         <View style={styles.title}>
-          <Text style={styles.to}>to </Text>
-          <Text style={styles.do}>do</Text>
+          <Text style={styles.to}>To</Text>
+          <Text style={styles.do}>Do</Text>
         </View>
       </View>
 
@@ -58,6 +63,7 @@ export default function Home() {
               isDone: false,
             };
             setTaskList([...taskList, newTask]);
+            setTaskText("");
           }}
         >
           <Ionicons name="add-circle-outline" size={24} color="white" />
@@ -78,7 +84,7 @@ export default function Home() {
             Concluídas:
           </Text>
           <Text style={{ color: "#008100", fontSize: 20, fontWeight: "bold" }}>
-            { /*doneTaskList.length*/ }
+            {doneTasks}
           </Text>
         </View>
       </View>
@@ -92,8 +98,9 @@ export default function Home() {
               <ListTask
                 id={item.id}
                 task={item.text}
+                isDone={item.isDone}
                 onRemove={() => setTaskList(handleRemoveTask(item.id))}
-                //isDone={() => handleDoneTask(item.isDone)}
+                onDone={() => setDoneTask(handleDoneEvent(item.id))}
               />
             )}
             showsVerticalScrollIndicator={false}

@@ -20,6 +20,8 @@ export const styles = StyleSheet.create({
     flex: 0,
     flexDirection: "row",
     alignContent: "center",
+    gap: 10,
+    marginLeft: 10,
   },
   to: {
     color: "#A013DB",
@@ -68,12 +70,14 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "center",
+    gap: 4,
   },
   doneStatusDiv: {
     flex: 0,
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "center",
+    gap: 4,
   },
   tasklist: {
     borderTopWidth: 1,
